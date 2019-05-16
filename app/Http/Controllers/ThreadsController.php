@@ -61,7 +61,7 @@ class ThreadsController extends Controller
 	 */
 	public function create()
 	{
-		return view('Threads.create');
+		return view('threads.create');
 	}
 
 	/**
