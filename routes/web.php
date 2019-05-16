@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-	return view('welcome');
-});
+Route::get('/','ThreadsController@index');
 
 
 Route::get('/threads', 'ThreadsController@index')->name('threads');
