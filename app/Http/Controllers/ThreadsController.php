@@ -51,7 +51,7 @@ class ThreadsController extends Controller
 		}
 
 		$threads = $threads->get();
-		return view('Threads.index')->with(['threads' => $threads]);
+		return view('threads.index')->with(['threads' => $threads]);
 	}
 
 	/**
