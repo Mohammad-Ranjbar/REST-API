@@ -11,7 +11,7 @@ class RegisterController extends Controller
 {
     public function register(UserRegisterRequest $request)
     {
-        User::create([
+      $user =  User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
@@ -20,7 +20,8 @@ class RegisterController extends Controller
 
         return [
             'status' => true,
-            'message' => 'ثبت نام موفقیت آمیز بود'
+            'message' => 'ثبت نام موفقیت آمیز بود',
+            'token' => $user->createToken('create')->accessToken,
         ];
     }
 }
