@@ -38,7 +38,7 @@ class ThreadController extends Controller
             $threads = $threads->latest();
         }
 
-        $threads = $threads->get();
+        $threads = $threads->paginate(10);
 
         return ThreadIndexResource::collection($threads);
 
