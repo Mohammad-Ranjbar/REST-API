@@ -23,7 +23,8 @@ Route::group(['namespace'=>'api'],function () {
 
             Route::post('register', 'RegisterController@register');
             Route::post('login', 'LoginController@login');
-            
+
                 });
             });
+    Route::get('threads','ThreadController@index');
         });
