@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\api;
 
+use App\Http\Resources\api\ThreadIndexResource;
 use App\Models\Thread;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -39,7 +40,7 @@ class ThreadController extends Controller
 
         $threads = $threads->get();
 
-        return $threads;
+        return ThreadIndexResource::collection($threads);
 
     }
 
