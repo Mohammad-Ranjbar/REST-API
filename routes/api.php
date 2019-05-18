@@ -17,12 +17,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(['namespace'=>'api'],function (){
-    Route::group(['prefix'=>'user'],function (){
-        Route::group(['namespace'=>'User'],function (){
+Route::group(['namespace'=>'api'],function () {
+    Route::group(['prefix' => 'user'], function () {
+        Route::group(['namespace' => 'User'], function () {
 
-            Route::post('register','RegisterController@register');
-
+            Route::post('register', 'RegisterController@register');
+            Route::post('login', 'LoginController@login');
+            
+                });
+            });
         });
-    });
-});

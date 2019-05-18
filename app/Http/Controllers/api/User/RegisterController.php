@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\api\User;
 
-use App\Http\Requests\api\user\UserRegisterRequest;
+use App\Http\Requests\api\User\UserRegisterRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
