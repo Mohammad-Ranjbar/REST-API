@@ -19,7 +19,7 @@ class LoginController extends Controller
 
             return [
                 'status' => true,
-                'message' => 'ورود موفقیت آمیز بود',
+                'message' =>trans('api.user.login.success'),
                 'token' => $user->createToken('create')->accessToken,
             ];
 
@@ -29,7 +29,7 @@ class LoginController extends Controller
 
         return [
             'status' => false,
-            'message' =>'ورود موفقیت آمیز نبود'
+            'message' =>trans('api.user.login.failed')
 
         ];
     }
