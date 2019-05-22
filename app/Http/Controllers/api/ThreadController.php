@@ -64,5 +64,10 @@ class ThreadController extends Controller
             'message' => trans('api.thread.create_success')
         ];
     }
+
+    public function show()
+    {
+        
+    }
     
 }
