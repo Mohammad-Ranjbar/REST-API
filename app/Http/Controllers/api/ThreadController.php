@@ -72,5 +72,10 @@ class ThreadController extends Controller
         $thread = Thread::find($request->thread_id);
         return  new ShowThreadResource($thread);
     }
+
+    public function destroy()
+    {
+        
+    }
     
 }
