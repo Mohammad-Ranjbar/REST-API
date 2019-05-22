@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\api;
 
+use App\Http\Requests\api\Thread\CreateThreadRequest;
 use App\Http\Resources\api\ThreadIndexResource;
 use App\Models\Thread;
 use App\Models\User;
@@ -44,4 +45,24 @@ class ThreadController extends Controller
 
     }
 
+    public function create(CreateThreadRequest $request)
+    {
+        /** @var User $user */
+        $user = auth()->user();
+
+        Thread::create([
+
+            'user_id' =>$user->id ,
+            'channel_id' => $request->channel_id,
+            'title' => $request->title,
+            'body' => $request->body,
+
+        ]);
+
+        return [
+            'status' => true,
+            'message' => trans('api.thread.create_success')
+        ];
+    }
+    
 }

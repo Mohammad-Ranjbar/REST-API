@@ -28,3 +28,9 @@ Route::group(['namespace'=>'api'],function () {
             });
     Route::get('threads','ThreadController@index');
         });
+
+Route::group(['namespace' => 'api','middleware'=> 'auth:api'],function (){
+    Route::group(['prefix' => 'threads'],function (){
+        Route::post('create','ThreadController@create');
+    });
+});
