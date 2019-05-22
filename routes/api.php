@@ -26,7 +26,12 @@ Route::group(['namespace'=>'api'],function () {
 
                 });
             });
-    Route::get('threads','ThreadController@index');
+    Route::group(['prefix' => 'threads'],function (){
+        Route::get('/','ThreadController@index');
+        Route::post('/','ThreadController@show');
+
+    });
+
         });
 
 Route::group(['namespace' => 'api','middleware'=> 'auth:api'],function (){
@@ -34,3 +39,4 @@ Route::group(['namespace' => 'api','middleware'=> 'auth:api'],function (){
         Route::post('create','ThreadController@create');
     });
 });
+

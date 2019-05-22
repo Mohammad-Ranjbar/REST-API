@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Requests\api\Thread\CreateThreadRequest;
+use App\Http\Requests\api\Thread\ShowThreadRequest;
 use App\Http\Resources\api\ThreadIndexResource;
 use App\Models\Thread;
 use App\Models\User;
@@ -65,9 +66,10 @@ class ThreadController extends Controller
         ];
     }
 
-    public function show()
+    public function show(ShowThreadRequest $request)
     {
-        
+        $thread = Thread::find($request->thread_id);
+        return $thread;
     }
     
 }
