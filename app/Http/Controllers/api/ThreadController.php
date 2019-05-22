@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Requests\api\Thread\CreateThreadRequest;
+use App\Http\Requests\api\Thread\DestroyThreadRequest;
 use App\Http\Requests\api\Thread\ShowThreadRequest;
 use App\Http\Resources\api\Thread\ShowThreadResource;
 use App\Http\Resources\api\ThreadIndexResource;
@@ -73,9 +74,15 @@ class ThreadController extends Controller
         return  new ShowThreadResource($thread);
     }
 
-    public function destroy()
+    public function destroy(DestroyThreadRequest $request)
     {
-        
+       $thread = Thread::find($request->thread_id);
+        $this->authorize('update',$thread);
+        $thread->delete();
+        return [
+            'status' => true,
+            'message' => trans('api.thread.destroy_success')
+        ];
     }
     
 }
