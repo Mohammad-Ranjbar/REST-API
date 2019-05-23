@@ -77,8 +77,19 @@ class ThreadController extends Controller
     public function destroy(DestroyThreadRequest $request)
     {
        $thread = Thread::find($request->thread_id);
+       //use policy
         $this->authorize('update',$thread);
         $thread->delete();
+
+     //   //use authorize manually
+//        $user = auth()->user();
+//
+//        if ($user->id==$thread->user_id){
+//
+//
+//            $thread->delete();
+//        }
+
         return [
             'status' => true,
             'message' => trans('api.thread.destroy_success')
