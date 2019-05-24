@@ -1,11 +1,16 @@
 <?php
 
-namespace App\Http\Resources\api\Thread;
+namespace App\Http\Resources\api\Reply;
 
-use App\Http\Resources\api\Reply\ShowReplyResource;
+use App\Models\Reply;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ShowThreadResource extends JsonResource
+/**
+ * Class ShowReplyResource
+ * @package App\Http\Resources\api\Reply
+ * @mixin Reply
+ */
+class ShowReplyResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,10 +21,10 @@ class ShowThreadResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'channel_name' => $this->channel->name,
-            'title' => $this->title,
+            'user_id' => $this->user_id,
             'body' => $this->body,
-            'replies' => ShowReplyResource::collection($this->replies),
+
+
         ];
     }
 }
