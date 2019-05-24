@@ -37,7 +37,7 @@ Route::group(['namespace'=>'api'],function () {
 Route::group(['namespace' => 'api','middleware'=> 'auth:api'],function (){
     Route::group(['prefix' => 'threads'],function (){
         Route::post('create','ThreadController@create');
-        Route::post('{thread}/remove','ThreadController@destroy');
+        Route::get('{thread}/remove','ThreadController@destroy');
         Route::post('{thread}/add_reply','ReplyController@store');
     });
 });
