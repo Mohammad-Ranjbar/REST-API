@@ -68,13 +68,13 @@ class ThreadController extends Controller
         ];
     }
 
-    public function show(ShowThreadRequest $request)
+    public function show(Thread $thread)
     {
-        $thread = Thread::find($request->thread_id);
+
         return  new ShowThreadResource($thread);
     }
 
-    public function destroy(DestroyThreadRequest $request)
+    public function destroy(Thread $thread)
     {
        $thread = Thread::find($request->thread_id);
        //use policy

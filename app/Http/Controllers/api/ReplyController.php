@@ -14,10 +14,11 @@ class ReplyController extends Controller
         $thread->addReply([
             'user_id' => auth()->id(),
             'body' => $request->body,
-        ]);
+                         ]);
+
         return [
             'status' => true,
             'message' => trans('api.thread.add_reply')
-        ];
+               ];
     }
 }
