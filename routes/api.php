@@ -40,5 +40,10 @@ Route::group(['namespace' => 'api','middleware'=> 'auth:api'],function (){
         Route::get('{thread}/remove','ThreadController@destroy');
         Route::post('{thread}/add_reply','ReplyController@store');
     });
+
+    Route::group(['prefix' => 'replies'], function (){
+
+        Route::get('{reply}/remove','ReplyController@destroy');
+    });
 });
 
