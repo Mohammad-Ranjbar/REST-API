@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Requests\api\Reply\StoreReplyRequest;
+use App\Http\Requests\api\Reply\UpdateReplyRequest;
 use App\Models\Reply;
 use App\Models\Thread;
 use Illuminate\Http\Request;
@@ -31,6 +32,20 @@ class ReplyController extends Controller
         return [
             'status' => true,
             'message' => trans('api.replies.destroy_success')
+        ];
+    }
+
+    public function update(UpdateReplyRequest $request , Reply $reply)
+    {
+        $this->authorize('update',$reply);
+
+        $reply->update([
+            'body' => $request->body
+        ]);
+
+        return [
+            'status' => true,
+            'message' => trans('api.reply.update_success')
         ];
     }
 }

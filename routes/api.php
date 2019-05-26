@@ -44,6 +44,8 @@ Route::group(['namespace' => 'api','middleware'=> 'auth:api'],function (){
     Route::group(['prefix' => 'replies'], function (){
 
         Route::get('{reply}/remove','ReplyController@destroy');
+        Route::post('{reply}/update','ReplyController@update');
+
     });
 });
 
