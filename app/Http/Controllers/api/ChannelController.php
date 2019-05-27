@@ -13,6 +13,11 @@ class ChannelController extends Controller
     {
         $channel =Channel::paginate(5);
         return ChannelIndexResource::collection($channel);
+    }
 
+    public function threads(Channel $channel)
+    {
+        $threads =$channel->threads()->latest();
+        
     }
 }

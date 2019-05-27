@@ -33,6 +33,7 @@ Route::group(['namespace'=>'api'],function () {
     });
     Route::group(['prefix' => 'channels'],function (){
         Route::get('/','ChannelController@index');
+        Route::get('{channel}','ChannelController@threads');
     });
 
         });
