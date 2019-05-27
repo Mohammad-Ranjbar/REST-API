@@ -11,7 +11,7 @@ class ChannelController extends Controller
 {
     public function index()
     {
-        $channel =Channel::get();
+        $channel =Channel::paginate(5);
         return ChannelIndexResource::collection($channel);
 
     }
