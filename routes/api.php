@@ -51,7 +51,7 @@ Route::group(['namespace' => 'api','middleware'=> 'auth:api'],function (){
 
         Route::get('{reply}/remove','ReplyController@destroy');
         Route::post('{reply}/update','ReplyController@update');
-
+        Route::get('{reply}/add_favorite','FavoriteController@store');
     });
 });
 
